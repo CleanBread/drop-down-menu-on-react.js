@@ -21,17 +21,25 @@ class App extends Component {
     const div = this.state.isOpen && (
       <div className="spisok">
         <ul className="ul">
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
+          <a href="#">
+            <li>HTML</li>
+          </a>
+          <a href="#">
+            <li>CSS</li>
+          </a>
+          <a href="#">
+            <li>REACT</li>
+          </a>
+          <a href="#">
+            <li>ANGULAR</li>
+          </a>
         </ul>
       </div>
     );
     return (
       <div className="App">
         <button className="button" onClick={this.increaseQty}>
-          Кнопка
+          {this.state.isOpen ? "Закрыть" : "Открыть"}
         </button>
         {div}
       </div>
