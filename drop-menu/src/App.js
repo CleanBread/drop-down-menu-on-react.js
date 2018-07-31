@@ -1,9 +1,21 @@
 import React, { Component } from "react";
+import "./index.css";
 
 class App extends Component {
-  state = {
-    isOpen: true
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: true
+    };
+
+    this.increaseQty = this.increaseQty.bind(this);
+  }
+
+  increaseQty() {
+    this.setState(prevState => ({
+      isOpen: !this.state.isOpen
+    }));
+  }
 
   render() {
     const div = this.state.isOpen && (
@@ -18,19 +30,12 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <button className="button" onClick={this.HandOpen}>
+        <button className="button" onClick={this.increaseQty}>
           Кнопка
         </button>
         {div}
       </div>
     );
-
-    HandOpen = () => {
-      console.log("---", "clicked");
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
-    };
   }
 }
 
